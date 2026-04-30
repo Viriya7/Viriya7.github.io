@@ -289,18 +289,19 @@
     <script>
         let musicStarted = false;
 
+	const music = document.getElementById('BgMusic');
+
+	if(!musicStarted){
+		music.play().catch(e => console.log("Musik butuh interaksi");
+		musicStarted = true;
+	}	
+
         function showSection(id) {
             document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
             
             document.getElementById(id).style.display = 'block';
 
             window.location.hash = id;
-
-            const music = document.getElementById('bgMusic');
-            if (!musicStarted) {
-                music.play().catch(e => console.log("Musik butuh interaksi"));
-                musicStarted = true;
-            }
         }
 
         window.onload = function() {
